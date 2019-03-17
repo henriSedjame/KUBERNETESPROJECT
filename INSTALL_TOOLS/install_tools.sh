@@ -1,5 +1,6 @@
 #!/bin/bash
-#
+# Basculer sur un profil root
+sudo su
 # Installation de docker
 echo "[TASK 1] Installation de docker"
 apt-get update
@@ -13,7 +14,7 @@ add-apt-repository \
    "deb https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
    $(lsb_release -cs) \
    stable"
-apt-get update && apt-get install -y docker-ce=$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')
+apt-get update && apt-get install docker-ce
 #
 # Installation de Kubernetes
 echo "[TASK 2] Installation Kubernetes"
